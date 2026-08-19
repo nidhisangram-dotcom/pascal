@@ -105,7 +105,7 @@ impl MmapLog {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::io::Write;
+    use std::io::{Read, Write};
 
     #[test]
     fn append_only_and_aligned() {
@@ -128,5 +128,3 @@ mod tests {
         assert!(buf[offset + HEADER_LEN..offset + HEADER_LEN + payload.len()] == *payload);
     }
 }
-
-use std::io::Read;
