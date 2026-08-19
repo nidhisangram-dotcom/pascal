@@ -1,0 +1,12 @@
+[package]
+name = "pve-ingest"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pve-core = { path = "../pve-core" }
+pve-storage = { path = "../pve-storage" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+rumqttc = "0.23"

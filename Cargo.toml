@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = [
+    "pve-core",
+    "pve-storage",
+    "pve-ingest",
+    "pve-sidecar",
+]

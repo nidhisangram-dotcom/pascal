@@ -1,0 +1,11 @@
+[package]
+name = "pve-sidecar"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pve-core = { path = "../pve-core" }
+pve-storage = { path = "../pve-storage" }
+pve-ingest = { path = "../pve-ingest" }
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"

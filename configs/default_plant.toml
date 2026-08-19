@@ -1,0 +1,6 @@
+broker = "localhost"
+port = 1883
+client_id = "pve-sidecar-001"
+topic = "factory/physical/rea"
+ledger_path = "pve_physical_ledger.dat"
+capacity_bytes = 1073741824
