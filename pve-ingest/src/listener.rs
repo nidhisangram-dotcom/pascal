@@ -18,7 +18,7 @@ impl MqttListener {
         }
     }
 
-    pub fn run<F>(&self, mut handler: F) -> Result<(), rumqttc::ClientError>
+    pub fn run<F>(&self, mut handler: F) -> Result<(), rumqttc::ConnectionError>
     where
         F: FnMut(Vec<u8>),
     {
@@ -29,8 +29,8 @@ impl MqttListener {
             .subscribe(&self.topic, QoS::AtLeastOnce)
             .expect("failed to subscribe");
 
-        loop {
-            match connection.eventloop.poll() {
+        for event in connection.iter() {
+            match event {
                 Ok(Event::Incoming(Packet::Publish(publish))) => {
                     handler(publish.payload.to_vec());
                 }
