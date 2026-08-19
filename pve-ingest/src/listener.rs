@@ -38,5 +38,7 @@ impl MqttListener {
                 Err(err) => return Err(err),
             }
         }
+
+        Ok(())
     }
 }
