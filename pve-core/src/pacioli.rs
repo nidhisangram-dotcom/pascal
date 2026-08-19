@@ -112,8 +112,8 @@ mod tests {
     fn pacioli_equivalence_relation() {
         let d1 = PacioliVector::new(vec![5.0]).unwrap();
         let c1 = PacioliVector::new(vec![3.0]).unwrap();
-        let d2 = PacioliVector::new(vec![2.0]).unwrap();
-        let c2 = PacioliVector::new(vec![4.0]).unwrap();
+        let d2 = PacioliVector::new(vec![4.0]).unwrap();
+        let c2 = PacioliVector::new(vec![2.0]).unwrap();
 
         let p1 = PacioliPair::new(d1, c1).unwrap();
         let p2 = PacioliPair::new(d2, c2).unwrap();
