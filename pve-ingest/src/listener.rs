@@ -24,13 +24,13 @@ impl MqttListener {
     {
         let mut opts = MqttOptions::new(&self.client_id, &self.broker, self.port);
         opts.set_keep_alive(Duration::from_secs(30));
-        let (mut client, mut eventloop) = Client::new(opts, 10);
+        let (mut client, mut connection) = Client::new(opts, 10);
         client
             .subscribe(&self.topic, QoS::AtLeastOnce)
             .expect("failed to subscribe");
 
         loop {
-            match eventloop.poll() {
+            match connection.eventloop.poll() {
                 Ok(Event::Incoming(Packet::Publish(publish))) => {
                     handler(publish.payload.to_vec());
                 }
